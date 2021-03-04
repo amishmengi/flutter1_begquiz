@@ -15,6 +15,13 @@ class _MyAppState extends State<MyApp> {
   var questionIndex = 0;
   var totalscore= 0;
 
+  void resetQuiz(){
+    setState(() {
+    questionIndex=0;
+    totalscore=0;
+    });
+  }
+
   final questions = const [
     {
       'questionText': 'What is your fav color?',
@@ -72,7 +79,7 @@ class _MyAppState extends State<MyApp> {
                 questionIndex: questionIndex,
                  questions: questions,
               )
-            : Result(totalscore),
+            : Result(totalscore,resetQuiz),
       ),
     );
   }
